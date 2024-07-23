@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crime Heatmap</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAReIFoH6Hl0SEjwCgibugFn6nq9_c1xAQ&libraries=visualization"></script>
+    <script>
+    function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: {lat: 37.7749, lng: -122.4194}  // Center the map on San Francisco
+    });
+
+    var heatmapData = [
+        new google.maps.LatLng(37.782, -122.447),
+        new google.maps.LatLng(37.782, -122.445),
+         new google.maps.LatLng(37.782, -122.442),
+        new google.maps.LatLng(37.783, -122.450),
+        new google.maps.LatLng(37.784, -122.447),
+        new google.maps.LatLng(37.785, -122.445),
+         new google.maps.LatLng(37.786, -122.442),
+        new google.maps.LatLng(37.790, -122.450),
+        // Add more static data points here
+    ];
+
+    var heatmap = new google.maps.visualization.HeatmapLayer({
+        data: heatmapData
+    });
+
+    heatmap.setMap(map);
+}
+    </script>
+</head>
+<body onload="initMap()">
+    <div id="map" style="height: 500px; width: 100%;"></div>
+</body>
+</html>
